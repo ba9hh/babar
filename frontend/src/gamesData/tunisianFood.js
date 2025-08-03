@@ -1,0 +1,20 @@
+const tunisianFood =[
+    {name:"Lablebi",imageLink:"https://www.marhba.com/images/lifestyle2022/ChezYassine_BorhenCherif.jpg"},
+    {name:"Ojja merguez",imageLink:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilT6i4z1OAkbZQcnv6GaExibRn9_0BJH-NyfGd2k2w65WwfZ_QCzhjW_T091-yTuQnkNb0sIbNP6AwRstYJ3MWjzAYUwltEvdsjrEYkq2mPxJZ5cxa05EROpQ_pTjyIpn0HJcDnFAeF1MB/w1200-h630-p-k-no-nu/1.jpg"},
+    {name:"Mlawi",imageLink:"https://nickipoststravelstuff.com/wp-content/uploads/2024/05/img_9779-1.jpg"},
+    {name:"Brik",imageLink:"https://i0.wp.com/les-toquets.fr/wp-content/uploads/2023/03/Brik-a-loeuf.jpg"},
+    {name:"Kafteji",imageLink:"https://nickipoststravelstuff.com/wp-content/uploads/2024/05/img_7644-1.jpg"},
+    {name:"Couscous",imageLink:"https://www.diari.tn/sites/default/files/image/recette/xcouscous-viande_0.jpg.pagespeed.ic.wIYLVeozkK.jpg"},
+    {name:"Fricassé",imageLink:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Le_fricass%C3%A9.JPG/640px-Le_fricass%C3%A9.JPG"},
+    {name:"Rbo3 djaj",imageLink:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUknQUEPpo5WchmMqgNw2drYxj40vB5IXbDQ&s"},
+    {name:"Chapati",imageLink:""},
+    {name:"Shakshouka",imageLink:""},
+    {name:"Baguette Farcie",imageLink:""},
+    {name:"Loubia",imageLink:""},
+    {name:"Kamounia",imageLink:""},
+    {name:"Mloukhiya",imageLink:""},
+    {name:"Pizza",imageLink:""},
+    {name:"Omek Houria",imageLink:""},
+    {name:"Makloub",imageLink:""},
+]
+export default tunisianFood;
