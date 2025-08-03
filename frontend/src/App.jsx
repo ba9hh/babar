@@ -2,7 +2,7 @@ import { useState } from "react";
 import Home from "./components/Home";
 import InGame from "./components/InGame";
 import InGameImages from "./components/InGameImages";
-import PreGame from "./components/preGame";
+import PreGame from "./components/PreGame";
 import Test from "./components/test";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
