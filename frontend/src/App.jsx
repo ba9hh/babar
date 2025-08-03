@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Home from "./components/home";
+import Home from "./components/Home";
 import InGame from "./components/InGame";
 import InGameImages from "./components/InGameImages";
 import PreGame from "./components/preGame";
