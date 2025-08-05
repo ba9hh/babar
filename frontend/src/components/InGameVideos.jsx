@@ -1,24 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import vswhite from "../assets/vswhite.svg";
 import babar from "../assets/babar.svg";
 import { Link } from "react-router-dom";
 
-const InGameImages = ({ data }) => {
+const InGameVideos = ({ data }) => {
   const createChunks = (arr) => {
     let result = [];
-    for (let i = 0; i < arr.length; i += 2) {
+    for (let i = 0; i < arr?.length; i += 2) {
       result.push(arr.slice(i, i + 2));
     }
     return result;
   };
-  const [chunkedArrays, setChunkedArrays] = useState(createChunks(data));
+  const [chunkedArrays, setChunkedArrays] = useState([]);
   const [currentRound, setCurrentRound] = useState(0);
   const [chosen, setChosen] = useState(Array(chunkedArrays.length).fill(""));
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const chunkedData = createChunks(data);
+        setChunkedArrays(chunkedData);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    }
+    loadData();
+  }, []);
+  // Handle selection
   const handleSelect = (itemName) => {
     const newChosen = [...chosen];
     newChosen[currentRound] = itemName;
     setChosen(newChosen);
   };
+
+  // Move to the next round
   const handleNext = () => {
     if (currentRound < chunkedArrays.length - 1) {
       setCurrentRound(currentRound + 1);
@@ -38,49 +52,64 @@ const InGameImages = ({ data }) => {
       <div className="flex flex-col w-full h-screen justify-center items-center px-10">
         <div className="flex justify-end w-full my-7">
           <h1 className="text-sm text-gray-400 font-medium border-[1.5px] border-gray-500 px-4 py-1 rounded-[4px]">
-            The best Spacetoon Song Tournament : Round {currentRound + 1}/{chunkedArrays?.length}
+            The best Spacetoon Song Tournament : Round {currentRound + 1}/
+            {chunkedArrays?.length}
           </h1>
         </div>
-        <div className="flex items-center w-full justify-between">
+        <div className="flex items-center justify-between w-full">
           <div>
             <div className="w-[640px] h-[360px]">
-              <img
-                className="w-full h-full object-cover"
-                src={chunkedArrays[currentRound][0].imageLink}
-              />
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${chunkedArrays[currentRound]?.[0]?.youtubeId}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
             <div
               className={`flex justify-center py-4 cursor-pointer border-t border-sky-900 ${
-                chosen[currentRound].name == chunkedArrays[currentRound][0].name
+                chosen[currentRound]?.name ==
+                chunkedArrays[currentRound]?.[0]?.name
                   ? "bg-red-400"
                   : "bg-red-100 hover:bg-red-200"
               }`}
               onClick={() => handleSelect(chunkedArrays[currentRound][0])}
             >
-              <h1 className="text-lg">{chunkedArrays[currentRound][0].name}</h1>
+              <h1 className="text-lg">
+                {chunkedArrays[currentRound]?.[0]?.name}
+              </h1>
             </div>
           </div>
-          <img src={vswhite} className="h-10 w-10 mx-4" />
+          {/* <img src={vswhite} className="h-28 w-28" /> */}
           {/* <div className="flex justify-center items-center h-28 w-28">
-              <img src={vswhite} className="h-10 w-10"/>
+            <img src={vswhite} className="h-10 w-10" />
           </div> */}
 
           <div>
             <div className="w-[640px] h-[360px]">
-              <img
-                className="w-full h-full object-cover"
-                src={chunkedArrays[currentRound][1].imageLink}
-              />
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${chunkedArrays[currentRound]?.[1]?.youtubeId}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
             <div
               className={`flex justify-center py-4 cursor-pointer border-t border-sky-900 ${
-                chosen[currentRound].name == chunkedArrays[currentRound][1].name
+                chosen[currentRound]?.name ==
+                chunkedArrays[currentRound]?.[1]?.name
                   ? "bg-green-400"
                   : "bg-green-100 hover:bg-green-200"
               }`}
               onClick={() => handleSelect(chunkedArrays[currentRound][1])}
             >
-              <h1 className="text-lg">{chunkedArrays[currentRound][1].name}</h1>
+              <h1 className="text-lg">
+                {chunkedArrays[currentRound]?.[1]?.name}
+              </h1>
             </div>
           </div>
         </div>
@@ -100,4 +129,4 @@ const InGameImages = ({ data }) => {
   );
 };
 
-export default InGameImages;
+export default InGameVideos;

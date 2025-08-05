@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import babar from "../assets/babar.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const PreGame = () => {
   const { game } = useParams();
+  const navigate = useNavigate();
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -12,43 +13,39 @@ const PreGame = () => {
     return array;
   }
 
-  
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function loadData() {
       try {
-        // Dynamically import the module from the data folder based on URL param
         const module = await import(`../gamesData/${game}.js`);
-        setData(shuffleArray(module.default)); // assuming your file exports an array as default
-        
+        setData(shuffleArray(module.default));
       } catch (error) {
         console.error("Error loading data:", error);
       }
     }
     loadData();
   }, [game]);
-  // setData(shuffleArray(data))
-  console.log(data);
-  sessionStorage.setItem("cartoons", JSON.stringify(data));
+  const arrayHasYoutubeId = (array) => {
+    return array.some((item) => "youtubeId" in item);
+  };
   const onStartGame = () => {
-    
+    navigate("/ingame", { state: { game: data } });
   };
   return (
     <div className="relative flex justify-center items-center min-h-screen bg-gray-900 ">
-      <Link to={"/"} className="absolute flex left-10 top-7 gap-1">
+      <Link to={"/"} className="absolute flex left-10 top-7 gap-1 z-10">
         <img src={babar} className="w-12" />
         <h1 className="text-2xl font-medium text-gray-300">BABAR</h1>
       </Link>
-      <Link
-        className="absolute flex bottom-0 justify-center w-full cursor-pointer"
-        to={"/ingame"}
-        onClick={()=>onStartGame}
+
+      <button
+        className="absolute bottom-0 w-full py-2 rounded-[4px]
+                 bg-sky-600 font-medium text-white cursor-pointer"
+        onClick={onStartGame}
       >
-        <button className="w-full py-2 rounded-[4px] bg-sky-600 font-medium text-white cursor-pointer">
-          Start now
-        </button>
-      </Link>
+        Start now
+      </button>
       <div className="absolute flex w-full justify-center top-12 px-36">
         <h1 className="text-gray-300 w-fit border border-gray-300 text-center px-28 py-1">
           Spacetoon best song tournament
@@ -419,7 +416,7 @@ const PreGame = () => {
                       {data[15]?.name}
                     </span>
                     <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_28a01fBzBLHfA94O3x5boOMo9EojJ41hqA&s"
+                      src={data[15]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
                   </div>
