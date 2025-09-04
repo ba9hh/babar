@@ -47,7 +47,7 @@ const PreGame = () => {
         Start now
       </button>
       <div className="absolute flex w-full justify-center top-12 px-36">
-        <h1 className="text-gray-300 w-fit max-w-32 border border-gray-300 text-center px-28 py-1">
+        <h1 className="text-gray-300 w-fit border border-gray-300 text-center px-28 py-1">
           Spacetoon best song tournament
         </h1>
       </div>
