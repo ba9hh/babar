@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import vswhite from "../assets/vswhite.svg";
 import babar from "../assets/babar.svg";
 import { Link, useNavigate } from "react-router-dom";
+import TournamentState from "./TournamentState";
 
 const InGameImages = ({ data }) => {
+  const [openTournamentState, setOpenTournamentState] = useState(false);
+  const [tournamentStateData, setTournamentStateData] = useState(data);
+  const [tournamentStateQuarterFinal, setTournamentStateQuarterFinal] =
+    useState([]);
+  const [tournamentStateSemiFinal, setTournamentStateSemiFinal] = useState([]);
+  const [tournamentStateFinal, setTournamentStateFinal] = useState([]);
+  const [tournamentState, setTournamentState] = useState(1);
   const navigate = useNavigate();
   const createChunks = (arr) => {
     let result = [];
@@ -22,16 +30,36 @@ const InGameImages = ({ data }) => {
   };
   const handleNext = () => {
     if (chunkedArrays.length == 1) {
-      navigate("/winner", { state: { game: data } });
+      navigate("/winner", { state: { game: chosen } });
     } else if (currentRound < chunkedArrays.length - 1) {
       setCurrentRound(currentRound + 1);
-    } else {
+    } else if (tournamentState == 1) {
+      setTournamentStateQuarterFinal(chosen);
+      setTournamentState(2);
       const newChunks = createChunks(chosen);
       setChunkedArrays(newChunks);
       setChosen(Array(newChunks.length).fill(""));
       setCurrentRound(0);
+      setOpenTournamentState(true);
+    } else if (tournamentState == 2) {
+      setTournamentStateSemiFinal(chosen);
+      setTournamentState(3);
+      const newChunks = createChunks(chosen);
+      setChunkedArrays(newChunks);
+      setChosen(Array(newChunks.length).fill(""));
+      setCurrentRound(0);
+      setOpenTournamentState(true);
+    } else {
+      setTournamentStateFinal(chosen);
+      const newChunks = createChunks(chosen);
+      setChunkedArrays(newChunks);
+      setChosen(Array(newChunks.length).fill(""));
+      setCurrentRound(0);
+      setOpenTournamentState(true);
     }
   };
+  console.log(data);
+  console.log(chosen);
   return (
     <div className="relative bg-gray-900 ">
       <Link to={"/"} className="absolute flex left-10 top-7 gap-1">
@@ -100,6 +128,15 @@ const InGameImages = ({ data }) => {
           </button>
         </div>
       </div>
+      {openTournamentState && (
+        <TournamentState
+          close={() => setOpenTournamentState(false)}
+          data={tournamentStateData}
+          quarterFinal={tournamentStateQuarterFinal}
+          semiFinal={tournamentStateSemiFinal}
+          final={tournamentStateFinal}
+        />
+      )}
     </div>
   );
 };

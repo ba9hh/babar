@@ -1,45 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import BabarLogo from "./BabarLogo";
-const PreGame = () => {
-  const { game } = useParams();
-  const navigate = useNavigate();
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const module = await import(`../gamesData/${game}.js`);
-        setData(shuffleArray(module.default));
-      } catch (error) {
-        console.error("Error loading data:", error);
-      }
-    }
-    loadData();
-  }, [game]);
-  const arrayHasYoutubeId = (array) => {
-    return array.some((item) => "youtubeId" in item);
-  };
-  const onStartGame = () => {
-    navigate("/ingame", { state: { game: data } });
-  };
+const TournamentState = ({
+  close,
+  data,
+  quarterFinal = [],
+  semiFinal = [],
+  final = [],
+}) => {
+  console.log(data);
+  console.log(quarterFinal);
   return (
-    <div className="relative flex justify-center items-center min-h-screen bg-gray-900 ">
+    <div className="absolute inset-0 flex justify-center items-center min-h-screen bg-gray-900 ">
       <BabarLogo />
       <button
         className="absolute bottom-0 w-full py-2 rounded-[4px]
                  bg-sky-600 font-medium truncate text-white cursor-pointer"
-        onClick={onStartGame}
+        onClick={close}
       >
-        Start now
+        Continue
       </button>
       <div className="absolute flex w-full justify-center top-12 px-36">
         <h1 className="text-gray-300 w-fit border border-gray-300 text-center px-28 py-1">
@@ -80,8 +59,18 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 1/2
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[0]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[0]?.name
+                      : "-----------"}
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
                   <div className="absolute bottom-0 right-0 h-1/2 border-r border-gray-500"></div>
@@ -117,8 +106,18 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 3/4
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[1]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[1]?.name
+                      : "-----------"}
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
                   <div className="absolute top-0 right-0 h-1/2 border-r border-gray-500"></div>
@@ -130,8 +129,16 @@ const PreGame = () => {
               {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 1/2/3/4
               </span> */}
-              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                -----------
+              {semiFinal?.length > 0 ? (
+                <img
+                  src={semiFinal[0]?.imageLink}
+                  className="h-10 w-10 rounded-full"
+                />
+              ) : (
+                ""
+              )}
+              <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                {semiFinal?.length > 0 ? semiFinal[0]?.name : "-----------"}
               </span>
               <div className="flex-grow border-t border-gray-500"></div>
               <div className="absolute bottom-0 right-0 h-1/2 border-r border-gray-500"></div>
@@ -169,8 +176,18 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 5/6
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[2]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[2]?.name
+                      : "-----------"}
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
                   <div className="absolute bottom-0 right-0 h-1/2 border-r border-gray-500"></div>
@@ -206,8 +223,18 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 7/8
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[3]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[3]?.name
+                      : "-----------"}
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
                   <div className="absolute top-0 right-0 h-1/2 border-r border-gray-500"></div>
@@ -219,23 +246,59 @@ const PreGame = () => {
               {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 5/6/7/8
               </span> */}
-              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                -----------
+              {semiFinal?.length > 0 ? (
+                <img
+                  src={semiFinal[1]?.imageLink}
+                  className="h-10 w-10 rounded-full"
+                />
+              ) : (
+                ""
+              )}
+              <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                {semiFinal?.length > 0 ? semiFinal[1]?.name : "-----------"}
               </span>
               <div className="flex-grow border-t border-gray-500"></div>
               <div className="absolute top-0 right-0 h-1/2 border-r border-gray-500"></div>
             </div>
           </div>
         </div>
-        <div className="flex items-center w-48">
-          <div className="flex-grow border-t border-gray-500"></div>
-          <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-            -----------
-          </span>
-          {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
+        <div className="flex flex-col justify-center gap-20">
+          <div className="flex items-center w-48">
+            <div className="flex-grow border-t border-gray-500"></div>
+            {final?.length > 0 ? (
+              <img
+                src={final[0]?.imageLink}
+                className="h-10 w-10 rounded-full"
+              />
+            ) : (
+              ""
+            )}
+            <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+              {final?.length > 0 ? final[0]?.name : "-----------"}
+            </span>
+            {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
             team 5/6/7/8
           </span> */}
-          <div className="flex-grow border-t border-gray-500"></div>
+            <div className="flex-grow border-t border-gray-500"></div>
+          </div>
+          <div className="flex items-center w-48">
+            <div className="flex-grow border-t border-gray-500"></div>
+            <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+              {final?.length > 0 ? final[1]?.name : "-----------"}
+            </span>
+            {final?.length > 0 ? (
+              <img
+                src={final[1]?.imageLink}
+                className="h-10 w-10 rounded-full"
+              />
+            ) : (
+              ""
+            )}
+            {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
+            team 5/6/7/8
+          </span> */}
+            <div className="flex-grow border-t border-gray-500"></div>
+          </div>
         </div>
       </div>
       {/*  */}
@@ -245,9 +308,17 @@ const PreGame = () => {
             <div className="relative flex justify-center items-center w-48">
               <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
               <div className="flex-grow border-t border-gray-500"></div>
-              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                -----------
+              <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                {semiFinal?.length > 0 ? semiFinal[2]?.name : "-----------"}
               </span>
+              {semiFinal?.length > 0 ? (
+                <img
+                  src={semiFinal[2]?.imageLink}
+                  className="h-10 w-10 rounded-full"
+                />
+              ) : (
+                ""
+              )}
               {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 1/2/3//4
               </span> */}
@@ -261,9 +332,19 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 1/2
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[4]?.name
+                      : "-----------"}
                   </span>
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[4]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
                   <div className="flex-grow border-t border-gray-500"></div>
                 </div>
                 <div className="flex flex-col py-5">
@@ -298,9 +379,19 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 3/4
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[5]?.name
+                      : "-----------"}
                   </span>
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[5]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
                   <div className="flex-grow border-t border-gray-500"></div>
                 </div>
                 <div className="flex flex-col py-5">
@@ -337,9 +428,17 @@ const PreGame = () => {
               {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 5/6/7/8
               </span> */}
-              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                -----------
+              <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                {semiFinal?.length > 0 ? semiFinal[3]?.name : "-----------"}
               </span>
+              {semiFinal?.length > 0 ? (
+                <img
+                  src={semiFinal[3]?.imageLink}
+                  className="h-10 w-10 rounded-full"
+                />
+              ) : (
+                ""
+              )}
               <div className="flex-grow border-t border-gray-500"></div>
             </div>
             <div className="flex flex-col">
@@ -350,9 +449,19 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 5/6
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[6]?.name
+                      : "-----------"}
                   </span>
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[6]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
                   <div className="flex-grow border-t border-gray-500"></div>
                 </div>
                 <div className="flex flex-col py-5">
@@ -387,9 +496,19 @@ const PreGame = () => {
                   {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 7/8
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    -----------
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
+                    {quarterFinal?.length > 0
+                      ? quarterFinal[7]?.name
+                      : "-----------"}
                   </span>
+                  {quarterFinal?.length > 0 ? (
+                    <img
+                      src={quarterFinal[7]?.imageLink}
+                      className="h-10 w-10 rounded-full"
+                    />
+                  ) : (
+                    ""
+                  )}
                   <div className="flex-grow border-t border-gray-500"></div>
                 </div>
                 <div className="flex flex-col py-5">
@@ -425,4 +544,4 @@ const PreGame = () => {
   );
 };
 
-export default PreGame;
+export default TournamentState;

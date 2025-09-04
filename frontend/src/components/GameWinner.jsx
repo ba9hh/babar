@@ -1,11 +1,21 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import BabarLogo from "./BabarLogo";
+import confetti from "canvas-confetti";
+
 const GameWinner = () => {
   const { state } = useLocation();
   const game = state?.game || [];
+  console.log(game);
+  useEffect(() => {
+    confetti({
+      particleCount: 300,
+      spread: 160,
+      origin: { y: 0.9 },
+    });
+  }, []);
   return (
-    <div className="relative bg-gray-900 ">
+    <div className="relative bg-gray-900">
       <BabarLogo />
       <div className="flex flex-col w-full h-screen justify-center items-center px-10">
         <div className="flex justify-center w-full my-7">
