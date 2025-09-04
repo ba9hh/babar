@@ -47,7 +47,7 @@ const PreGame = () => {
         Start now
       </button>
       <div className="absolute flex w-full justify-center top-12 px-36">
-        <h1 className="text-gray-300 w-fit max-w-16 border border-gray-300 text-center px-28 py-1">
+        <h1 className="text-gray-300 w-fit max-w-32 border border-gray-300 text-center px-28 py-1">
           Spacetoon best song tournament
         </h1>
       </div>
@@ -62,7 +62,7 @@ const PreGame = () => {
                       src={data[0]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate ">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate ">
                       {data[0]?.name}{" "}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -73,7 +73,7 @@ const PreGame = () => {
                       src={data[1]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[1]?.name}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -82,10 +82,10 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 1/2
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -99,7 +99,7 @@ const PreGame = () => {
                       src={data[2]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[2]?.name}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -110,7 +110,7 @@ const PreGame = () => {
                       src={data[3]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[3]?.name}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -119,10 +119,10 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 3/4
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -132,10 +132,10 @@ const PreGame = () => {
             </div>
             <div className="relative flex items-center w-48">
               <div className="flex-grow border-t border-gray-500"></div>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 1/2/3/4
               </span> */}
-              <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
               <div className="flex-grow border-t border-gray-500"></div>
@@ -151,7 +151,7 @@ const PreGame = () => {
                       src={data[4]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[4]?.name}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -162,7 +162,7 @@ const PreGame = () => {
                       src={data[5]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[5]?.name}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -171,10 +171,10 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 5/6
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -188,7 +188,7 @@ const PreGame = () => {
                       src={data[6]?.imageLink}
                       className="h-10 w-10 rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[6]?.name}{" "}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -199,7 +199,7 @@ const PreGame = () => {
                       src={data[7]?.imageLink}
                       className="h-10 w-10 object-cover rounded-full"
                     />
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[7]?.name}
                     </span>
                     <div className="flex-grow border-t border-gray-500"></div>
@@ -208,10 +208,10 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 7/8
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -221,10 +221,10 @@ const PreGame = () => {
             </div>
             <div className=" relative flex items-center w-48">
               <div className="flex-grow border-t border-gray-500"></div>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 5/6/7/8
               </span> */}
-              <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
               <div className="flex-grow border-t border-gray-500"></div>
@@ -234,10 +234,10 @@ const PreGame = () => {
         </div>
         <div className="flex items-center w-48">
           <div className="flex-grow border-t border-gray-500"></div>
-          <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+          <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
             -----------
           </span>
-          {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+          {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
             team 5/6/7/8
           </span> */}
           <div className="flex-grow border-t border-gray-500"></div>
@@ -250,10 +250,10 @@ const PreGame = () => {
             <div className="relative flex justify-center items-center w-48">
               <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
               <div className="flex-grow border-t border-gray-500"></div>
-              <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 1/2/3//4
               </span> */}
               <div className="flex-grow border-t border-gray-500"></div>
@@ -263,10 +263,10 @@ const PreGame = () => {
                 <div className="relative flex items-center justify-center w-48">
                   <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 1/2
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -275,7 +275,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[8]?.name}
                     </span>
                     <img
@@ -286,7 +286,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[9]?.name}
                     </span>
                     <img
@@ -300,10 +300,10 @@ const PreGame = () => {
                 <div className="relative flex justify-center items-center w-48">
                   <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 3/4
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -312,7 +312,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[10]?.name}
                     </span>
                     <img
@@ -323,7 +323,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[11]?.name}
                     </span>
                     <img
@@ -339,10 +339,10 @@ const PreGame = () => {
             <div className="relative flex justify-center items-center w-48">
               <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
               <div className="flex-grow border-t border-gray-500"></div>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 team 5/6/7/8
               </span> */}
-              <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+              <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
               <div className="flex-grow border-t border-gray-500"></div>
@@ -352,10 +352,10 @@ const PreGame = () => {
                 <div className="relative flex justify-center items-center w-48">
                   <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 5/6
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -364,7 +364,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[12]?.name}
                     </span>
                     <img
@@ -375,7 +375,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[13]?.name}
                     </span>
                     <img
@@ -389,10 +389,10 @@ const PreGame = () => {
                 <div className="relative flex justify-center items-center w-48">
                   <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     team 7/8
                   </span> */}
-                  <span className="px-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                  <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
                   <div className="flex-grow border-t border-gray-500"></div>
@@ -401,7 +401,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[14]?.name}
                     </span>
                     <img
@@ -412,7 +412,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                     <div className="flex-grow border-t border-gray-500"></div>
-                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-16 font-medium truncate">
+                    <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[15]?.name}
                     </span>
                     <img
