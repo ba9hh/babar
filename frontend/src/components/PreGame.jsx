@@ -55,7 +55,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[0]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate ">
                       {data[0]?.name}{" "}
@@ -66,7 +66,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[1]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[1]?.name}
@@ -92,7 +92,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[2]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[2]?.name}
@@ -103,7 +103,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[3]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[3]?.name}
@@ -144,7 +144,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[4]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[4]?.name}
@@ -155,7 +155,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[5]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[5]?.name}
@@ -181,7 +181,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[6]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[6]?.name}{" "}
@@ -192,7 +192,7 @@ const PreGame = () => {
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[7]?.imageLink}
-                      className="h-10 w-10 object-cover rounded-full"
+                      className="h-10 w-10 object-cover rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[7]?.name}
@@ -275,7 +275,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[8]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -286,7 +286,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[9]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
@@ -312,7 +312,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[10]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -323,7 +323,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[11]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
@@ -364,7 +364,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[12]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -375,7 +375,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[13]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
@@ -401,7 +401,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[14]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -412,7 +412,7 @@ const PreGame = () => {
                     </span>
                     <img
                       src={data[15]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>

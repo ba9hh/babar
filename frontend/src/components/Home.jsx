@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import babar from "../assets/babar.svg";
 import babarGames from "../babarGames";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -11,19 +11,22 @@ const Home = () => {
         <h1 className="text-2xl font-medium text-gray-300">BABAR</h1>
       </div>
       <div className="absolute flex right-10 top-10 gap-1">
-        <button className='py-2.5 px-4 bg-gray-700 text-gray-300 rounded-lg text-sm font-medium'>Suggest game</button>
+        <button className="py-2.5 px-4 bg-gray-700 text-gray-300 rounded-lg text-sm font-medium">
+          Suggest game
+        </button>
       </div>
       <div className="flex w-full justify-center gap-3 pb-10 pt-10">
-          <h1 className="text-white">All games</h1>
-          <h1 className="text-gray-400">Tunisian games</h1>
-          <h1 className="text-gray-400">Anime games</h1>
-          <h1 className="text-gray-400">TV shows games</h1>
-          <h1 className="text-gray-400">Movies games</h1>
+        <h1 className="text-white">All games</h1>
+        <h1 className="text-gray-400">Tunisian games</h1>
+        <h1 className="text-gray-400">Anime games</h1>
+        <h1 className="text-gray-400">TV shows games</h1>
+        <h1 className="text-gray-400">Movies games</h1>
       </div>
-      <div className='flex justify-center'>
-        
-      <h1 className='text-center text-white bg-sky-800 w-fit px-1.5'>“In case you encounter an unfamiliar element in any game, this is a great opportunity to discover it.”
-      </h1>
+      <div className="flex justify-center">
+        <h1 className="text-center text-white bg-sky-800 w-fit px-1.5">
+          “In case you encounter an unfamiliar element in any game, this is a
+          great opportunity to discover it.”
+        </h1>
       </div>
       {/* <h1 className='text-center text-white'> Albert Einstein</h1> */}
       <div className="grid grid-cols-3 gap-x-10 gap-y-10 px-16 pt-10 pb-10">
@@ -36,7 +39,7 @@ const Home = () => {
             <h1 className="text-white py-2">{game.name}</h1>
           </Link>
         ))}
-        <div>
+        {/* <div>
           <img src="https://i.ytimg.com/vi/JOz8CVQjTuA/maxresdefault.jpg" />
           <h1 className="text-white">Spacetoon best song</h1>
         </div>
@@ -73,10 +76,10 @@ const Home = () => {
         <div>
           <img src="https://miro.medium.com/v2/resize:fit:2560/1*pbqVPZcMUy2rcj5OL_GSoA.jpeg" />
           <h1 className="text-white">Tunisia best street food</h1>
-        </div>
+        </div> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

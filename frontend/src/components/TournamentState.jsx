@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import BabarLogo from "./BabarLogo";
+import vswhite from "../assets/vswhite.svg";
+
 const TournamentState = ({
   close,
   data,
@@ -34,7 +36,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[0]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate ">
                       {data[0]?.name}{" "}
@@ -45,7 +47,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[1]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[1]?.name}
@@ -62,7 +64,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[0]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -81,7 +83,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[2]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[2]?.name}
@@ -92,7 +94,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[3]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[3]?.name}
@@ -109,7 +111,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[1]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -132,7 +134,7 @@ const TournamentState = ({
               {semiFinal?.length > 0 ? (
                 <img
                   src={semiFinal[0]?.imageLink}
-                  className="h-10 w-10 rounded-full"
+                  className="h-10 w-10 rounded-full object-cover"
                 />
               ) : (
                 ""
@@ -151,7 +153,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[4]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[4]?.name}
@@ -162,7 +164,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[5]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[5]?.name}
@@ -179,7 +181,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[2]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -198,7 +200,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[6]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[6]?.name}{" "}
@@ -209,7 +211,7 @@ const TournamentState = ({
                   <div className="relative flex items-center w-48">
                     <img
                       src={data[7]?.imageLink}
-                      className="h-10 w-10 object-cover rounded-full"
+                      className="h-10 w-10 object-cover rounded-full object-cover"
                     />
                     <span className="px-3 py-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                       {data[7]?.name}
@@ -226,7 +228,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[3]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -249,7 +251,7 @@ const TournamentState = ({
               {semiFinal?.length > 0 ? (
                 <img
                   src={semiFinal[1]?.imageLink}
-                  className="h-10 w-10 rounded-full"
+                  className="h-10 w-10 rounded-full object-cover"
                 />
               ) : (
                 ""
@@ -262,13 +264,13 @@ const TournamentState = ({
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center gap-20">
+        <div className="flex flex-col justify-center gap-10">
           <div className="flex items-center w-48">
             <div className="flex-grow border-t border-gray-500"></div>
             {final?.length > 0 ? (
               <img
                 src={final[0]?.imageLink}
-                className="h-10 w-10 rounded-full"
+                className="h-10 w-10 rounded-full object-cover"
               />
             ) : (
               ""
@@ -276,11 +278,9 @@ const TournamentState = ({
             <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
               {final?.length > 0 ? final[0]?.name : "-----------"}
             </span>
-            {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-            team 5/6/7/8
-          </span> */}
             <div className="flex-grow border-t border-gray-500"></div>
           </div>
+          <img src={vswhite} className="h-10 w-10 mx-auto" />
           <div className="flex items-center w-48">
             <div className="flex-grow border-t border-gray-500"></div>
             <span className="px-3 text-gray-300 text-base w-fit max-w-24 font-medium truncate">
@@ -289,7 +289,7 @@ const TournamentState = ({
             {final?.length > 0 ? (
               <img
                 src={final[1]?.imageLink}
-                className="h-10 w-10 rounded-full"
+                className="h-10 w-10 rounded-full object-cover"
               />
             ) : (
               ""
@@ -314,7 +314,7 @@ const TournamentState = ({
               {semiFinal?.length > 0 ? (
                 <img
                   src={semiFinal[2]?.imageLink}
-                  className="h-10 w-10 rounded-full"
+                  className="h-10 w-10 rounded-full object-cover"
                 />
               ) : (
                 ""
@@ -340,7 +340,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[4]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -356,7 +356,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[8]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -367,7 +367,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[9]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
@@ -387,7 +387,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[5]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -403,7 +403,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[10]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -414,7 +414,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[11]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
@@ -434,7 +434,7 @@ const TournamentState = ({
               {semiFinal?.length > 0 ? (
                 <img
                   src={semiFinal[3]?.imageLink}
-                  className="h-10 w-10 rounded-full"
+                  className="h-10 w-10 rounded-full object-cover"
                 />
               ) : (
                 ""
@@ -457,7 +457,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[6]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -473,7 +473,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[12]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -484,7 +484,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[13]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
@@ -504,7 +504,7 @@ const TournamentState = ({
                   {quarterFinal?.length > 0 ? (
                     <img
                       src={quarterFinal[7]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   ) : (
                     ""
@@ -520,7 +520,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[14]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                   <div className="relative flex items-center w-48">
@@ -531,7 +531,7 @@ const TournamentState = ({
                     </span>
                     <img
                       src={data[15]?.imageLink}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 w-10 rounded-full object-cover"
                     />
                   </div>
                 </div>
