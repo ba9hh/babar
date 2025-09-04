@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import vswhite from "../assets/vswhite.svg";
 import babar from "../assets/babar.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const InGameImages = ({ data }) => {
+  const navigate = useNavigate();
   const createChunks = (arr) => {
     let result = [];
     for (let i = 0; i < arr.length; i += 2) {
@@ -20,7 +21,9 @@ const InGameImages = ({ data }) => {
     setChosen(newChosen);
   };
   const handleNext = () => {
-    if (currentRound < chunkedArrays.length - 1) {
+    if (chunkedArrays.length == 1) {
+      navigate("/winner", { state: { game: data } });
+    } else if (currentRound < chunkedArrays.length - 1) {
       setCurrentRound(currentRound + 1);
     } else {
       const newChunks = createChunks(chosen);
@@ -38,7 +41,8 @@ const InGameImages = ({ data }) => {
       <div className="flex flex-col w-full h-screen justify-center items-center px-10">
         <div className="flex justify-end w-full my-7">
           <h1 className="text-sm text-gray-400 font-medium border-[1.5px] border-gray-500 px-4 py-1 rounded-[4px]">
-            The best Spacetoon Song Tournament : Round {currentRound + 1}/{chunkedArrays?.length}
+            The best Spacetoon Song Tournament : Round {currentRound + 1}/
+            {chunkedArrays?.length}
           </h1>
         </div>
         <div className="flex items-center w-full justify-between">

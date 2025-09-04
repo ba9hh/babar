@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import vswhite from "../assets/vswhite.svg";
 import babar from "../assets/babar.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const InGameVideos = ({ data }) => {
+  const navigate = useNavigate();
   const createChunks = (arr) => {
     let result = [];
     for (let i = 0; i < arr?.length; i += 2) {
@@ -34,9 +35,12 @@ const InGameVideos = ({ data }) => {
 
   // Move to the next round
   const handleNext = () => {
-    if (currentRound < chunkedArrays.length - 1) {
+    if (chunkedArrays.length == 1) {
+      navigate("/winner", { state: { game: data } });
+    } else if (currentRound < chunkedArrays.length - 1) {
       setCurrentRound(currentRound + 1);
     } else {
+      console.log("show the tournament state");
       const newChunks = createChunks(chosen);
       setChunkedArrays(newChunks);
       setChosen(Array(newChunks.length).fill(""));
@@ -82,11 +86,7 @@ const InGameVideos = ({ data }) => {
               </h1>
             </div>
           </div>
-          {/* <img src={vswhite} className="h-28 w-28" /> */}
-          {/* <div className="flex justify-center items-center h-28 w-28">
-            <img src={vswhite} className="h-10 w-10" />
-          </div> */}
-
+          <img src={vswhite} className="h-10 w-10" />
           <div>
             <div className="w-[640px] h-[360px]">
               <iframe
