@@ -8,6 +8,7 @@ import InGameVideos from "./InGameVideos";
 const InGame = () => {
   const { state } = useLocation();
   const game = state?.game || [];
+  const tournamentName = state?.tournamentName || "";
   const arrayHasYoutubeId = (array) => {
     return array.some((item) => "youtubeId" in item);
   };
@@ -20,7 +21,7 @@ const InGame = () => {
       {arrayHasYoutubeId(game) ? (
         <InGameVideos data={game} />
       ) : (
-        <InGameImages data={game} />
+        <InGameImages data={game} tournamentName={tournamentName} />
       )}
     </div>
   );

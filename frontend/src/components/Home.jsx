@@ -1,9 +1,13 @@
 import React from "react";
 import babar from "../assets/babar.svg";
 import babarGames from "../babarGames";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const onStartPreGame = (gameUri, tournamentName) => {
+    navigate(`/games/${gameUri}`, { state: { gameUri, tournamentName } });
+  };
   return (
     <div className="relative min-h-screen bg-gray-900">
       <div className="absolute flex left-10 top-7 gap-1">
@@ -30,14 +34,20 @@ const Home = () => {
       </div>
       {/* <h1 className='text-center text-white'> Albert Einstein</h1> */}
       <div className="grid grid-cols-3 gap-x-10 gap-y-10 px-16 pt-10 pb-10">
-        {babarGames.map((game, index) => (
-          <Link to={`/games/${game.uri}`} key={index}>
+        {babarGames?.map((game, index) => (
+          <div
+            // to={`/games/${game.uri}`}
+            key={index}
+            onClick={() => onStartPreGame(game.uri, game.name)}
+            className="cursor-pointer"
+          >
             <img
               className="w-[640px] aspect-[16/9] object-cover"
               src={game.imageLink}
+              alt={game.name}
             />
             <h1 className="text-white py-2">{game.name}</h1>
-          </Link>
+          </div>
         ))}
         {/* <div>
           <img src="https://i.ytimg.com/vi/JOz8CVQjTuA/maxresdefault.jpg" />

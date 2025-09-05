@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import BabarLogo from "./BabarLogo";
+
 const PreGame = () => {
-  const { game } = useParams();
+  const { state } = useLocation();
+  const tournamentName = state?.tournamentName || "";
+  const game = state?.gameUri || "";
   const navigate = useNavigate();
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -11,9 +14,7 @@ const PreGame = () => {
     }
     return array;
   }
-
   const [data, setData] = useState([]);
-
   useEffect(() => {
     async function loadData() {
       try {
@@ -25,11 +26,8 @@ const PreGame = () => {
     }
     loadData();
   }, [game]);
-  const arrayHasYoutubeId = (array) => {
-    return array.some((item) => "youtubeId" in item);
-  };
   const onStartGame = () => {
-    navigate("/ingame", { state: { game: data } });
+    navigate("/ingame", { state: { game: data, tournamentName } });
   };
   return (
     <div className="relative flex justify-center items-center min-h-screen bg-gray-900 ">
@@ -43,7 +41,7 @@ const PreGame = () => {
       </button>
       <div className="absolute flex w-full justify-center top-12 px-36">
         <h1 className="text-gray-300 w-fit border border-gray-300 text-center px-28 py-1">
-          Spacetoon best song tournament
+          {tournamentName} tournament
         </h1>
       </div>
       <div className="flex">
@@ -77,9 +75,6 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 1/2
-                  </span> */}
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
@@ -114,9 +109,7 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 3/4
-                  </span> */}
+
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
@@ -127,9 +120,6 @@ const PreGame = () => {
             </div>
             <div className="relative flex items-center w-48">
               <div className="flex-grow border-t border-gray-500"></div>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                team 1/2/3/4
-              </span> */}
               <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
@@ -166,9 +156,6 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 5/6
-                  </span> */}
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
@@ -203,9 +190,6 @@ const PreGame = () => {
                 </div>
                 <div className="relative flex justify-center items-center w-48">
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 7/8
-                  </span> */}
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
@@ -216,9 +200,7 @@ const PreGame = () => {
             </div>
             <div className=" relative flex items-center w-48">
               <div className="flex-grow border-t border-gray-500"></div>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                team 5/6/7/8
-              </span> */}
+
               <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
@@ -232,13 +214,9 @@ const PreGame = () => {
           <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
             -----------
           </span>
-          {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-            team 5/6/7/8
-          </span> */}
           <div className="flex-grow border-t border-gray-500"></div>
         </div>
       </div>
-      {/*  */}
       <div className="flex">
         <div className="flex flex-col">
           <div className="flex">
@@ -248,9 +226,6 @@ const PreGame = () => {
               <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                team 1/2/3//4
-              </span> */}
               <div className="flex-grow border-t border-gray-500"></div>
             </div>
             <div className="flex flex-col">
@@ -258,9 +233,6 @@ const PreGame = () => {
                 <div className="relative flex items-center justify-center w-48">
                   <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 1/2
-                  </span> */}
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
@@ -295,9 +267,7 @@ const PreGame = () => {
                 <div className="relative flex justify-center items-center w-48">
                   <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 3/4
-                  </span> */}
+
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
@@ -334,9 +304,6 @@ const PreGame = () => {
             <div className="relative flex justify-center items-center w-48">
               <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
               <div className="flex-grow border-t border-gray-500"></div>
-              {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                team 5/6/7/8
-              </span> */}
               <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                 -----------
               </span>
@@ -347,9 +314,6 @@ const PreGame = () => {
                 <div className="relative flex justify-center items-center w-48">
                   <div className="absolute bottom-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 5/6
-                  </span> */}
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>
@@ -384,9 +348,6 @@ const PreGame = () => {
                 <div className="relative flex justify-center items-center w-48">
                   <div className="absolute top-0 left-0 h-1/2 border-l border-gray-500"></div>
                   <div className="flex-grow border-t border-gray-500"></div>
-                  {/* <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-                    team 7/8
-                  </span> */}
                   <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
                     -----------
                   </span>

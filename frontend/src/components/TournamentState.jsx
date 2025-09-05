@@ -4,6 +4,7 @@ import BabarLogo from "./BabarLogo";
 import vswhite from "../assets/vswhite.svg";
 
 const TournamentState = ({
+  tournamentName,
   close,
   data,
   quarterFinal = [],
@@ -24,7 +25,7 @@ const TournamentState = ({
       </button>
       <div className="absolute flex w-full justify-center top-12 px-36">
         <h1 className="text-gray-300 w-fit border border-gray-300 text-center px-28 py-1">
-          Spacetoon best song tournament
+          {tournamentName} tournament
         </h1>
       </div>
       <div className="flex">

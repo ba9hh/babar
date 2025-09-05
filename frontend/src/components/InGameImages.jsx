@@ -4,9 +4,9 @@ import babar from "../assets/babar.svg";
 import { Link, useNavigate } from "react-router-dom";
 import TournamentState from "./TournamentState";
 
-const InGameImages = ({ data }) => {
+const InGameImages = ({ data, tournamentName }) => {
   const [openTournamentState, setOpenTournamentState] = useState(false);
-  const [tournamentStateData, setTournamentStateData] = useState(data);
+  // const [tournamentStateData, setTournamentStateData] = useState(data);
   const [tournamentStateQuarterFinal, setTournamentStateQuarterFinal] =
     useState([]);
   const [tournamentStateSemiFinal, setTournamentStateSemiFinal] = useState([]);
@@ -130,8 +130,9 @@ const InGameImages = ({ data }) => {
       </div>
       {openTournamentState && (
         <TournamentState
+          tournamentName={tournamentName}
           close={() => setOpenTournamentState(false)}
-          data={tournamentStateData}
+          data={data}
           quarterFinal={tournamentStateQuarterFinal}
           semiFinal={tournamentStateSemiFinal}
           final={tournamentStateFinal}
