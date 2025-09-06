@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import BabarLogo from "./BabarLogo";
 import vswhite from "../assets/vswhite.svg";
 
@@ -11,8 +9,6 @@ const TournamentState = ({
   semiFinal = [],
   final = [],
 }) => {
-  console.log(data);
-  console.log(quarterFinal);
   return (
     <div className="absolute inset-0 flex justify-center items-center min-h-screen bg-gray-900 ">
       <BabarLogo />

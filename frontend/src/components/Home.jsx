@@ -1,13 +1,19 @@
-import React from "react";
+import { useState } from "react";
 import babar from "../assets/babar.svg";
 import babarGames from "../babarGames";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+const categories = ["All", "Tunisian", "Anime", "TV Shows", "Movies"];
 const Home = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const navigate = useNavigate();
   const onStartPreGame = (gameUri, tournamentName) => {
     navigate(`/games/${gameUri}`, { state: { gameUri, tournamentName } });
   };
+  const filteredGames =
+    selectedCategory === "All"
+      ? babarGames
+      : babarGames.filter((game) => game.category === selectedCategory);
   return (
     <div className="relative min-h-screen bg-gray-900">
       <div className="absolute flex left-10 top-7 gap-1">
@@ -20,11 +26,17 @@ const Home = () => {
         </button>
       </div>
       <div className="flex w-full justify-center gap-3 pb-10 pt-10">
-        <h1 className="text-white">All games</h1>
-        <h1 className="text-gray-400">Tunisian games</h1>
-        <h1 className="text-gray-400">Anime games</h1>
-        <h1 className="text-gray-400">TV shows games</h1>
-        <h1 className="text-gray-400">Movies games</h1>
+        {categories.map((cat) => (
+          <h1
+            key={cat}
+            className={`cursor-pointer transition-colors ${
+              selectedCategory === cat ? "text-white" : "text-gray-400"
+            }`}
+            onClick={() => setSelectedCategory(cat)}
+          >
+            {cat} games
+          </h1>
+        ))}
       </div>
       <div className="flex justify-center">
         <h1 className="text-center text-white bg-sky-800 w-fit px-1.5">
@@ -32,11 +44,9 @@ const Home = () => {
           great opportunity to discover it.”
         </h1>
       </div>
-      {/* <h1 className='text-center text-white'> Albert Einstein</h1> */}
       <div className="grid grid-cols-3 gap-x-10 gap-y-10 px-16 pt-10 pb-10">
-        {babarGames?.map((game, index) => (
+        {filteredGames?.map((game, index) => (
           <div
-            // to={`/games/${game.uri}`}
             key={index}
             onClick={() => onStartPreGame(game.uri, game.name)}
             className="cursor-pointer"
@@ -49,14 +59,7 @@ const Home = () => {
             <h1 className="text-white py-2">{game.name}</h1>
           </div>
         ))}
-        {/* <div>
-          <img src="https://i.ytimg.com/vi/JOz8CVQjTuA/maxresdefault.jpg" />
-          <h1 className="text-white">Spacetoon best song</h1>
-        </div>
-        <div>
-          <img src="https://i.ytimg.com/vi/KPLWWIOCOOQ/maxresdefault.jpg" />
-          <h1 className="text-white">Game of thrones best character</h1>
-        </div>
+        {/* 
         <div>
           <img
             className="w-[640px] aspect-[16/9] object-cover"

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import vswhite from "../assets/vswhite.svg";
-import babar from "../assets/babar.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TournamentState from "./TournamentState";
+import BabarLogo from "./BabarLogo";
 
 const InGameImages = ({ data, tournamentName }) => {
   const [openTournamentState, setOpenTournamentState] = useState(false);
@@ -58,18 +58,13 @@ const InGameImages = ({ data, tournamentName }) => {
       setOpenTournamentState(true);
     }
   };
-  console.log(data);
-  console.log(chosen);
   return (
     <div className="relative bg-gray-900 ">
-      <Link to={"/"} className="absolute flex left-10 top-7 gap-1">
-        <img src={babar} className="w-12" />
-        <h1 className="text-2xl font-medium text-gray-300">BABAR</h1>
-      </Link>
+      <BabarLogo />
       <div className="flex flex-col w-full h-screen justify-center items-center px-10">
         <div className="flex justify-end w-full my-7">
           <h1 className="text-sm text-gray-400 font-medium border-[1.5px] border-gray-500 px-4 py-1 rounded-[4px]">
-            The best Spacetoon Song Tournament : Round {currentRound + 1}/
+            {tournamentName} tournament : Round {currentRound + 1}/
             {chunkedArrays?.length}
           </h1>
         </div>
@@ -93,10 +88,6 @@ const InGameImages = ({ data, tournamentName }) => {
             </div>
           </div>
           <img src={vswhite} className="h-10 w-10 mx-4" />
-          {/* <div className="flex justify-center items-center h-28 w-28">
-              <img src={vswhite} className="h-10 w-10"/>
-          </div> */}
-
           <div>
             <div className="w-[640px] h-[360px]">
               <img

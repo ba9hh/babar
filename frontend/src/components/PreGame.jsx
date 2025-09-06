@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import BabarLogo from "./BabarLogo";
+import vswhite from "../assets/vswhite.svg";
 
 const PreGame = () => {
   const { state } = useLocation();
@@ -209,12 +210,22 @@ const PreGame = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center w-48">
-          <div className="flex-grow border-t border-gray-500"></div>
-          <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
-            -----------
-          </span>
-          <div className="flex-grow border-t border-gray-500"></div>
+        <div className="flex flex-col justify-center gap-10">
+          <div className="flex items-center w-48">
+            <div className="flex-grow border-t border-gray-500"></div>
+            <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
+              -----------
+            </span>
+            <div className="flex-grow border-t border-gray-500"></div>
+          </div>
+          <img src={vswhite} className="h-10 w-10 mx-auto" />
+          <div className="flex items-center w-48">
+            <div className="flex-grow border-t border-gray-500"></div>
+            <span className="px-3 text-gray-300 text-base w-fit max-w-32 font-medium truncate">
+              -----------
+            </span>
+            <div className="flex-grow border-t border-gray-500"></div>
+          </div>
         </div>
       </div>
       <div className="flex">
