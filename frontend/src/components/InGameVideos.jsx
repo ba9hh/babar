@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import vswhite from "../assets/vswhite.svg";
 import { useNavigate } from "react-router-dom";
+import TournamentState from "./TournamentState";
 import BabarLogo from "./BabarLogo";
 
 const InGameVideos = ({ data, tournamentName }) => {
+  const [openTournamentState, setOpenTournamentState] = useState(false);
+  const [tournamentStateQuarterFinal, setTournamentStateQuarterFinal] =
+    useState([]);
+  const [tournamentStateSemiFinal, setTournamentStateSemiFinal] = useState([]);
+  const [tournamentStateFinal, setTournamentStateFinal] = useState([]);
+  const [tournamentState, setTournamentState] = useState(1);
   const navigate = useNavigate();
   const createChunks = (arr) => {
     let result = [];
@@ -36,15 +43,32 @@ const InGameVideos = ({ data, tournamentName }) => {
   // Move to the next round
   const handleNext = () => {
     if (chunkedArrays.length == 1) {
-      navigate("/winner", { state: { game: data } });
+      navigate("/winner", { state: { game: chosen } });
     } else if (currentRound < chunkedArrays.length - 1) {
       setCurrentRound(currentRound + 1);
-    } else {
-      console.log("show the tournament state");
+    } else if (tournamentState == 1) {
+      setTournamentStateQuarterFinal(chosen);
+      setTournamentState(2);
       const newChunks = createChunks(chosen);
       setChunkedArrays(newChunks);
       setChosen(Array(newChunks.length).fill(""));
       setCurrentRound(0);
+      setOpenTournamentState(true);
+    } else if (tournamentState == 2) {
+      setTournamentStateSemiFinal(chosen);
+      setTournamentState(3);
+      const newChunks = createChunks(chosen);
+      setChunkedArrays(newChunks);
+      setChosen(Array(newChunks.length).fill(""));
+      setCurrentRound(0);
+      setOpenTournamentState(true);
+    } else {
+      setTournamentStateFinal(chosen);
+      const newChunks = createChunks(chosen);
+      setChunkedArrays(newChunks);
+      setChosen(Array(newChunks.length).fill(""));
+      setCurrentRound(0);
+      setOpenTournamentState(true);
     }
   };
   return (
@@ -122,6 +146,16 @@ const InGameVideos = ({ data, tournamentName }) => {
           </button>
         </div>
       </div>
+      {openTournamentState && (
+        <TournamentState
+          tournamentName={tournamentName}
+          close={() => setOpenTournamentState(false)}
+          data={data}
+          quarterFinal={tournamentStateQuarterFinal}
+          semiFinal={tournamentStateSemiFinal}
+          final={tournamentStateFinal}
+        />
+      )}
     </div>
   );
 };

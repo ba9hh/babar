@@ -6,7 +6,6 @@ import BabarLogo from "./BabarLogo";
 
 const InGameImages = ({ data, tournamentName }) => {
   const [openTournamentState, setOpenTournamentState] = useState(false);
-  // const [tournamentStateData, setTournamentStateData] = useState(data);
   const [tournamentStateQuarterFinal, setTournamentStateQuarterFinal] =
     useState([]);
   const [tournamentStateSemiFinal, setTournamentStateSemiFinal] = useState([]);
